@@ -23,14 +23,16 @@ class SorvetesWidget extends StatelessWidget {
                 child: Column(
                   children: [
                     Image.asset('assets/images/casquinha.png',
-                        width: 125, height: 125, fit: BoxFit.contain),
+                        width: 125, height: 135, fit: BoxFit.contain),
                     SizedBox(
                       height: 15,
                     ),
                     Text(
                       'Casquinhas',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                      ),
                     )
                   ],
                 ),
@@ -48,7 +50,7 @@ class SorvetesWidget extends StatelessWidget {
                     Image.asset(
                       'assets/images/caneca.png',
                       width: 125,
-                      height: 125,
+                      height: 135,
                       fit: BoxFit.contain,
                     ),
                     SizedBox(
@@ -57,7 +59,7 @@ class SorvetesWidget extends StatelessWidget {
                     Text(
                       'Canecas',
                       style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
                     )
                   ],
                 ),
@@ -83,7 +85,7 @@ class SorvetesWidget extends StatelessWidget {
                     Image.asset(
                       'assets/images/nopote.png',
                       width: 125,
-                      height: 125,
+                      height: 135,
                       fit: BoxFit.contain,
                     ),
                     SizedBox(
@@ -92,7 +94,7 @@ class SorvetesWidget extends StatelessWidget {
                     Text(
                       'No pote',
                       style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
                     )
                   ],
                 ),
@@ -110,7 +112,7 @@ class SorvetesWidget extends StatelessWidget {
                     Image.asset(
                       'assets/images/mix.png',
                       width: 125,
-                      height: 125,
+                      height: 135,
                       fit: BoxFit.contain,
                     ),
                     SizedBox(
@@ -119,7 +121,7 @@ class SorvetesWidget extends StatelessWidget {
                     Text(
                       'Mix',
                       style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
                     )
                   ],
                 ),
@@ -145,7 +147,7 @@ class SorvetesWidget extends StatelessWidget {
                     Image.asset(
                       'assets/images/milkshake.png',
                       width: 125,
-                      height: 125,
+                      height: 135,
                       fit: BoxFit.contain,
                     ),
                     SizedBox(
@@ -154,7 +156,7 @@ class SorvetesWidget extends StatelessWidget {
                     Text(
                       'Milk Shake',
                       style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
                     )
                   ],
                 ),
@@ -172,7 +174,7 @@ class SorvetesWidget extends StatelessWidget {
                     Image.asset(
                       'assets/images/ovomaltine.png',
                       width: 125,
-                      height: 125,
+                      height: 135,
                       fit: BoxFit.contain,
                     ),
                     SizedBox(
@@ -181,7 +183,7 @@ class SorvetesWidget extends StatelessWidget {
                     Text(
                       'Ovomaltine',
                       style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
                     )
                   ],
                 ),

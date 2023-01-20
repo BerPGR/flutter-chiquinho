@@ -1,4 +1,5 @@
 import 'package:chiquinho/widgets/famosos_widget.dart';
+import 'package:chiquinho/widgets/gelados_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -45,7 +46,21 @@ class HomePage extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  SorvetesWidget()
+                  SorvetesWidget(),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(
+                    'Gelados da semana!',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  GeladosWidget(),
+                  SizedBox(
+                    height: 20,
+                  )
                 ],
               ),
             ),
