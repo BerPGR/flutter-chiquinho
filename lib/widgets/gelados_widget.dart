@@ -7,19 +7,25 @@ class GeladosWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(15),
-            child: Image.asset(
-              'assets/images/supershake.png',
-              fit: BoxFit.contain,
+          GestureDetector(
+            onTap: () {
+              print(width);
+            },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: Image.asset(
+                'assets/images/supershake.png',
+              ),
             ),
           ),
           SizedBox(
-            width: 20,
+            width: 15,
           ),
           ClipRRect(
             borderRadius: BorderRadius.circular(15),
@@ -29,13 +35,13 @@ class GeladosWidget extends StatelessWidget {
             ),
           ),
           SizedBox(
-            width: 20,
+            width: 15,
           ),
           ClipRRect(
             borderRadius: BorderRadius.circular(15),
             child: Image.asset(
               'assets/images/linha.png',
-              fit: BoxFit.contain,
+              fit: BoxFit.fitWidth,
             ),
           ),
         ],
