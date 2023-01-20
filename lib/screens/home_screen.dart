@@ -42,6 +42,9 @@ class HomePage extends StatelessWidget {
                     "Famosos do Chiquinho!",
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   SorvetesWidget()
                 ],
               ),
