@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Chiquinho App',
       theme: ThemeData(
+        fontFamily: 'Oduda',
         scaffoldBackgroundColor: Palette.scaffoldBackground,
       ),
       home: HomePage(),
