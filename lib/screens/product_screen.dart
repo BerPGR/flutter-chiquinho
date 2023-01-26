@@ -34,23 +34,41 @@ class _ProductScreenState extends State<ProductScreen> {
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                     child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              icon: Icon(
-                                Icons.arrow_back,
-                                color: widget.sorvete.categoriaId == 3 ||
-                                        widget.sorvete.categoriaId == 4 ||
-                                        widget.sorvete.categoriaId == 5
-                                    ? Colors.black87
-                                    : Palette.scaffoldBackground,
-                                size: 30,
-                              ))
-                        ]),
-                  )
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: Icon(
+                            Icons.arrow_back,
+                            color: widget.sorvete.categoriaId == 3 ||
+                                    widget.sorvete.categoriaId == 4 ||
+                                    widget.sorvete.categoriaId == 5
+                                ? Colors.black87
+                                : Palette.scaffoldBackground,
+                            size: 30,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          widget.sorvete.imagePath,
+                          fit: widget.sorvete.categoriaId == 4 ||
+                                  widget.sorvete.categoriaId == 5
+                              ? BoxFit.cover
+                              : BoxFit.contain,
+                          height: 240,
+                          width: widget.sorvete.categoriaId == 4 ? 160 : 240,
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
