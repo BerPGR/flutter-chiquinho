@@ -24,7 +24,7 @@ class _ProductScreenState extends State<ProductScreen> {
       body: Stack(
         children: [
           ProductBackground(
-            screenHeight: MediaQuery.of(context).size.height * 0.5,
+            screenHeight: MediaQuery.of(context).size.height * 0.53,
             colorId: widget.sorvete.categoriaId,
           ),
           SafeArea(
@@ -32,7 +32,7 @@ class _ProductScreenState extends State<ProductScreen> {
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -50,6 +50,20 @@ class _ProductScreenState extends State<ProductScreen> {
                             size: 30,
                           ),
                         ),
+                        Padding(
+                          padding: EdgeInsets.only(right: 10),
+                          child: Text(
+                            widget.sorvete.nome,
+                            style: TextStyle(
+                              fontSize: 24,
+                              color: widget.sorvete.categoriaId == 3 ||
+                                      widget.sorvete.categoriaId == 4 ||
+                                      widget.sorvete.categoriaId == 5
+                                  ? Colors.black87
+                                  : Palette.scaffoldBackground,
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
@@ -59,12 +73,9 @@ class _ProductScreenState extends State<ProductScreen> {
                       children: [
                         Image.asset(
                           widget.sorvete.imagePath,
-                          fit: widget.sorvete.categoriaId == 4 ||
-                                  widget.sorvete.categoriaId == 5
-                              ? BoxFit.cover
-                              : BoxFit.contain,
-                          height: 240,
-                          width: widget.sorvete.categoriaId == 4 ? 160 : 240,
+                          fit: BoxFit.contain,
+                          height: widget.sorvete.categoriaId == 4 ? 260 : 240,
+                          width: 240,
                         ),
                       ],
                     ),
