@@ -105,7 +105,7 @@ class _ProductScreenState extends State<ProductScreen> {
                         Image.asset(
                           widget.sorvete.imagePath,
                           fit: BoxFit.contain,
-                          height: widget.sorvete.categoriaId == 4 ? 260 : 240,
+                          height: 240,
                           width: 240,
                         ),
                       ],

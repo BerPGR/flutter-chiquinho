@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Oduda',
         scaffoldBackgroundColor: Palette.scaffoldBackground,
       ),
-      home: HomePage(),
+      home: HomeScreen(),
     );
   }
 }
