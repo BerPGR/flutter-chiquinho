@@ -3,14 +3,14 @@ class Sorvete {
   final String nome;
   final int categoriaId;
   final List<String> sabores;
-  final List<String>? tamanho;
+  final List<String> tamanho;
   final String imagePath;
 
   Sorvete(
       {required this.nome,
       required this.categoriaId,
       required this.sabores,
-      this.tamanho,
+      required this.tamanho,
       required this.imagePath});
 }
 
