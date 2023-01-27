@@ -26,8 +26,8 @@ class _ProductScreenState extends State<ProductScreen> {
   @override
   Widget build(BuildContext context) {
     setState(() {
-      _tamanhoValues = widget.sorvete.tamanho!;
       _saboresValues = widget.sorvete.sabores;
+      _tamanhoValues = widget.sorvete.tamanho!;
     });
     return Scaffold(
       body: Stack(
@@ -125,6 +125,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                   padding: const EdgeInsets.only(right: 8),
                                   child: DropdownButton<String>(
                                     elevation: 8,
+                                    hint: Text('Escolha!'),
                                     value: _tamanhoValue.isNotEmpty
                                         ? _tamanhoValue
                                         : null,
@@ -162,6 +163,7 @@ class _ProductScreenState extends State<ProductScreen> {
                                   padding: const EdgeInsets.only(right: 8),
                                   child: DropdownButton(
                                     elevation: 8,
+                                    hint: Text('Escolha!'),
                                     value: _saborValue.isNotEmpty
                                         ? _saborValue
                                         : null,
