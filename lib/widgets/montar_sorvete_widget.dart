@@ -20,10 +20,53 @@ class _MontarChiquinhoWidgetState extends State<MontarChiquinhoWidget> {
   String _tamanhoValue = '';
   String _saborValue = '';
   String _lactante = '';
-  double preco = 25.32;
+  double _preco = 0;
   List<String> _tamanhoValues = [];
   List<String> _saboresValues = [];
   List<String> _opcaoLactante = ['Sim', 'Não'];
+
+  void _mudarPreco(String size) {
+    int categoria = widget.sorvete.categoriaId;
+    if (categoria == 0) {
+      if (size.contains('Casquinha')) {
+        setState(() {
+          _preco = 4;
+        });
+      } else {
+        setState(() {
+          _preco = 7.5;
+        });
+      }
+    } else if (categoria == 1) {
+      setState(() {
+        _preco = 11.9;
+      });
+    } else if (categoria == 2) {
+      setState(() {
+        _preco = 19.9;
+      });
+    } else if (categoria == 3) {
+      setState(() {
+        _preco = 15.9;
+      });
+    } else if (categoria == 4) {
+      if (size == '300') {
+        setState(() {
+          _preco = 13;
+        });
+      } else if (size == '400') {
+        _preco = 15;
+      } else {
+        setState(() {
+          _preco = 17;
+        });
+      }
+    } else if (categoria == 5) {
+      setState(() {
+        _preco = 18;
+      });
+    }
+  }
 
   Color _buttonBackground(int index) {
     Color color;
@@ -89,6 +132,7 @@ class _MontarChiquinhoWidgetState extends State<MontarChiquinhoWidget> {
                         setState(() {
                           _tamanhoValue = value!.toString();
                         });
+                        _mudarPreco(_tamanhoValue);
                       },
                       items: _tamanhoValues.map(
                         (String value) {
@@ -184,7 +228,7 @@ class _MontarChiquinhoWidgetState extends State<MontarChiquinhoWidget> {
                   Padding(
                     padding: EdgeInsets.only(right: 8),
                     child: Text(
-                      'R\$${preco.toStringAsFixed(2)}',
+                      'R\$${_preco.toStringAsFixed(2)}',
                       style: TextStyle(fontSize: 20),
                     ),
                   )
@@ -220,6 +264,5 @@ class _MontarChiquinhoWidgetState extends State<MontarChiquinhoWidget> {
         ],
       ),
     );
-    ;
   }
 }
