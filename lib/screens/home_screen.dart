@@ -19,7 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _telas = [HomePage(), CartScreen()];
 
   void _onTabTapped(int index) {
-    setState(() {});
+    setState(() {
+      _indiceAtual = index;
+    });
   }
 
   @override
@@ -30,8 +32,8 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: _indiceAtual,
         onTap: _onTabTapped,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home)),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart))
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: '')
         ],
       ),
     );
