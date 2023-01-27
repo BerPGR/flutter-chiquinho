@@ -18,13 +18,22 @@ class ProductScreen extends StatefulWidget {
 }
 
 class _ProductScreenState extends State<ProductScreen> {
+  String _tamanhoValue = '';
+  String _saborValue = '';
+  List<String> _tamanhoValues = [];
+  List<String> _saboresValues = [];
+
   @override
   Widget build(BuildContext context) {
+    setState(() {
+      _tamanhoValues = widget.sorvete.tamanho!;
+      _saboresValues = widget.sorvete.sabores;
+    });
     return Scaffold(
       body: Stack(
         children: [
           ProductBackground(
-            screenHeight: MediaQuery.of(context).size.height * 0.53,
+            screenHeight: MediaQuery.of(context).size.height * 0.51,
             colorId: widget.sorvete.categoriaId,
           ),
           SafeArea(
@@ -32,7 +41,7 @@ class _ProductScreenState extends State<ProductScreen> {
               child: Column(
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    padding: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -51,7 +60,7 @@ class _ProductScreenState extends State<ProductScreen> {
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(right: 10),
+                          padding: EdgeInsets.only(right: 15),
                           child: Text(
                             widget.sorvete.nome,
                             style: TextStyle(
@@ -76,6 +85,104 @@ class _ProductScreenState extends State<ProductScreen> {
                           fit: BoxFit.contain,
                           height: widget.sorvete.categoriaId == 4 ? 260 : 240,
                           width: 240,
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Monte seu chiquinho!',
+                              style: TextStyle(
+                                  fontSize: 26, color: Color(0xFF303030)),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 25,
+                        ),
+                        Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Tamanho',
+                                  style: TextStyle(fontSize: 20),
+                                ),
+                                SizedBox(
+                                  height: 2,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 8),
+                                  child: DropdownButton<String>(
+                                    elevation: 8,
+                                    value: _tamanhoValue.isNotEmpty
+                                        ? _tamanhoValue
+                                        : null,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        _tamanhoValue = value!.toString();
+                                      });
+                                    },
+                                    items: _tamanhoValues.map(
+                                      (String value) {
+                                        return DropdownMenuItem(
+                                          value: value,
+                                          child: Text(value),
+                                        );
+                                      },
+                                    ).toList(),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Sabor',
+                                  style: TextStyle(fontSize: 20),
+                                ),
+                                SizedBox(
+                                  height: 5,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 8),
+                                  child: DropdownButton(
+                                    elevation: 8,
+                                    value: _saborValue.isNotEmpty
+                                        ? _saborValue
+                                        : null,
+                                    onChanged: (value) {
+                                      setState(() {
+                                        _saborValue = value!.toString();
+                                      });
+                                    },
+                                    items: _saboresValues.map(
+                                      (String value) {
+                                        return DropdownMenuItem(
+                                          value: value,
+                                          child: Text(value),
+                                        );
+                                      },
+                                    ).toList(),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                       ],
                     ),

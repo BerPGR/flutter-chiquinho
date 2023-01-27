@@ -2,9 +2,8 @@
 class Sorvete {
   final String nome;
   final int categoriaId;
-  final List sabores;
-  final List? tamanho;
-  final List? mls;
+  final List<String> sabores;
+  final List<String>? tamanho;
   final String imagePath;
 
   Sorvete(
@@ -12,7 +11,6 @@ class Sorvete {
       required this.categoriaId,
       required this.sabores,
       this.tamanho,
-      this.mls,
       required this.imagePath});
 }
 
@@ -27,7 +25,7 @@ Sorvete caneca = Sorvete(
     nome: 'Caneca',
     categoriaId: 1,
     sabores: ['Canecake'],
-    mls: [240],
+    tamanho: ['240'],
     imagePath: 'assets/images/caneca.png');
 
 Sorvete pote = Sorvete(
@@ -39,14 +37,14 @@ Sorvete pote = Sorvete(
       'Doce de Leite',
       'Morango'
     ],
-    mls: [950],
+    tamanho: ['950'],
     imagePath: 'assets/images/nopote.png');
 
 Sorvete mix = Sorvete(
     nome: 'Mix',
     categoriaId: 3,
     sabores: ['Maracuja Trufado', 'Doce de Leite', 'Ouro Branco'],
-    mls: [300],
+    tamanho: ['300'],
     imagePath: 'assets/images/mix.png');
 
 Sorvete milkShake = Sorvete(
@@ -59,11 +57,12 @@ Sorvete milkShake = Sorvete(
       'Morango',
       'Maracuja',
     ],
-    mls: [300, 400, 500],
+    tamanho: ['300', '400', '500'],
     imagePath: 'assets/images/milkshake.png');
 
 Sorvete ovomaltine = Sorvete(
     nome: 'Ovomaltine',
     categoriaId: 5,
-    sabores: [],
+    sabores: ['Morango'],
+    tamanho: ['300'],
     imagePath: 'assets/images/ovomaltine.png');
