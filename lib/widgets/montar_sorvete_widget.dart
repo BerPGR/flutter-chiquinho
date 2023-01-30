@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:chiquinho/colors/palette.dart';
 import 'package:chiquinho/models/sorvete.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -21,6 +22,7 @@ class _MontarChiquinhoWidgetState extends State<MontarChiquinhoWidget> {
   String _saborValue = '';
   String _lactante = '';
   double _preco = 0;
+  int _qtd = 0;
   List<String> _tamanhoValues = [];
   List<String> _saboresValues = [];
   List<String> _opcaoLactante = ['Sim', 'Não'];
@@ -222,41 +224,86 @@ class _MontarChiquinhoWidgetState extends State<MontarChiquinhoWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Preço',
+                    'Quantidade',
                     style: TextStyle(fontSize: 20),
                   ),
                   Padding(
                     padding: EdgeInsets.only(right: 8),
-                    child: Text(
-                      'R\$${_preco.toStringAsFixed(2)}',
-                      style: TextStyle(fontSize: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              if (_qtd == 0) {
+                                setState(() {
+                                  _qtd = 0;
+                                });
+                              } else {
+                                setState(() {
+                                  _qtd--;
+                                });
+                              }
+                            },
+                            icon: Icon(
+                              CupertinoIcons.minus,
+                              size: 24,
+                            )),
+                        Text(
+                          '${_qtd}',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _qtd++;
+                              });
+                            },
+                            icon: Icon(
+                              CupertinoIcons.plus,
+                              size: 24,
+                            ))
+                      ],
                     ),
                   )
                 ],
               ),
-              Container(
-                height: 45,
-                width: MediaQuery.of(context).size.width,
-                margin: EdgeInsets.only(top: 30),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        _buttonBackground(widget.sorvete.categoriaId),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      height: 45,
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              _buttonBackground(widget.sorvete.categoriaId),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          'Adicionar',
+                          style: TextStyle(
+                              fontSize: 24,
+                              color: widget.sorvete.categoriaId == 0 ||
+                                      widget.sorvete.categoriaId == 1 ||
+                                      widget.sorvete.categoriaId == 2
+                                  ? Palette.scaffoldBackground
+                                  : Color(0xFFF303030)),
+                        ),
+                      ),
                     ),
-                  ),
-                  onPressed: () {},
-                  child: Text(
-                    'Adicionar',
-                    style: TextStyle(
-                        fontSize: 24,
-                        color: widget.sorvete.categoriaId == 0 ||
-                                widget.sorvete.categoriaId == 1 ||
-                                widget.sorvete.categoriaId == 2
-                            ? Palette.scaffoldBackground
-                            : Color(0xFFF303030)),
-                  ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 8),
+                      child: Text(
+                        'R\$${_preco.toStringAsFixed(2)}',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    )
+                  ],
                 ),
               ),
             ],
