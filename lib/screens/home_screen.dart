@@ -31,8 +31,13 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _indiceAtual,
         onTap: _onTabTapped,
+        iconSize: 24,
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+              ),
+              label: ''),
           BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: '')
         ],
       ),

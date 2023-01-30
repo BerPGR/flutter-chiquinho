@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:chiquinho/colors/palette.dart';
+import 'package:chiquinho/models/pedido.dart';
 import 'package:chiquinho/models/sorvete.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -283,7 +284,34 @@ class _MontarChiquinhoWidgetState extends State<MontarChiquinhoWidget> {
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          if (_lactante.isNotEmpty &&
+                              _tamanhoValue.isNotEmpty &&
+                              _qtd > 0 &&
+                              _saborValue.isNotEmpty) {
+                            pedidos.add(Pedido(
+                                tamanho: _tamanhoValue,
+                                lactante: this._lactante,
+                                preco: this._preco,
+                                qtd: this._qtd,
+                                sabor: this._saborValue,
+                                tipo: widget.sorvete.nome));
+                          } else {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) => AlertDialog(
+                                      title: Text('Algo deu errado 🤨'),
+                                      content: Text('Verifique os campos!'),
+                                      actions: [
+                                        TextButton(
+                                            onPressed: () {
+                                              Navigator.pop(context, 'OK');
+                                            },
+                                            child: Text('OK'))
+                                      ],
+                                    ));
+                          }
+                        },
                         child: Text(
                           'Adicionar',
                           style: TextStyle(
