@@ -289,10 +289,13 @@ class _MontarChiquinhoWidgetState extends State<MontarChiquinhoWidget> {
                               _tamanhoValue.isNotEmpty &&
                               _qtd > 0 &&
                               _saborValue.isNotEmpty) {
+                            double total = this._preco * this._qtd;
                             pedidos.add(Pedido(
+                                id: pedidos.length + 1,
+                                imagePath: widget.sorvete.imagePath,
                                 tamanho: _tamanhoValue,
                                 lactante: this._lactante,
-                                preco: this._preco,
+                                preco: total,
                                 qtd: this._qtd,
                                 sabor: this._saborValue,
                                 tipo: widget.sorvete.nome));
