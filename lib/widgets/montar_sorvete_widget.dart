@@ -238,10 +238,12 @@ class _MontarChiquinhoWidgetState extends State<MontarChiquinhoWidget> {
                               if (_qtd == 0) {
                                 setState(() {
                                   _qtd = 0;
+                                  this._preco = this._preco * 0;
                                 });
                               } else {
                                 setState(() {
                                   _qtd--;
+                                  this._preco = this._preco / this._qtd;
                                 });
                               }
                             },
@@ -255,9 +257,29 @@ class _MontarChiquinhoWidgetState extends State<MontarChiquinhoWidget> {
                         ),
                         IconButton(
                             onPressed: () {
-                              setState(() {
-                                _qtd++;
-                              });
+                              if (this._tamanhoValue.isEmpty) {
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) =>
+                                      AlertDialog(
+                                    title: Text('Algo deu errado 🤨'),
+                                    content: Text('Selecione o tamanho!'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context, 'OK');
+                                        },
+                                        child: Text('OK'),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              } else {
+                                setState(() {
+                                  _qtd++;
+                                  this._preco *= this._qtd;
+                                });
+                              }
                             },
                             icon: Icon(
                               CupertinoIcons.plus,
@@ -301,18 +323,20 @@ class _MontarChiquinhoWidgetState extends State<MontarChiquinhoWidget> {
                                 tipo: widget.sorvete.nome));
                           } else {
                             showDialog(
-                                context: context,
-                                builder: (BuildContext context) => AlertDialog(
-                                      title: Text('Algo deu errado 🤨'),
-                                      content: Text('Verifique os campos!'),
-                                      actions: [
-                                        TextButton(
-                                            onPressed: () {
-                                              Navigator.pop(context, 'OK');
-                                            },
-                                            child: Text('OK'))
-                                      ],
-                                    ));
+                              context: context,
+                              builder: (BuildContext context) => AlertDialog(
+                                title: Text('Algo deu errado 🤨'),
+                                content: Text('Verifique os campos!'),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context, 'OK');
+                                    },
+                                    child: Text('OK'),
+                                  ),
+                                ],
+                              ),
+                            );
                           }
                         },
                         child: Text(

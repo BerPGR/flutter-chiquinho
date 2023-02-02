@@ -24,10 +24,23 @@ class _CartScreenState extends State<CartScreen> {
     setState(() {
       pedidos.removeWhere((pedido) => pedido.id == id);
     });
+    atualizaPreco();
+  }
+
+  void atualizaPreco() {
+    setState(() {
+      this._total = 0;
+    });
+    for (final pedido in pedidos) {
+      setState(() {
+        this._total += pedido.preco;
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    atualizaPreco();
     return Scaffold(
       body: Stack(
         alignment: Alignment.center,
@@ -152,7 +165,7 @@ class _CartScreenState extends State<CartScreen> {
           ),
           if (pedidos.length > 0)
             Positioned(
-              bottom: 10,
+              bottom: 0,
               child: Container(
                 height: 35,
                 width: MediaQuery.of(context).size.width * 0.7,
@@ -163,7 +176,9 @@ class _CartScreenState extends State<CartScreen> {
                       borderRadius: BorderRadius.circular(25),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    pedidos.clear();
+                  },
                   child: Text(
                     'Finalizar pedido',
                     style: TextStyle(color: Color(0xFF303030), fontSize: 20),
