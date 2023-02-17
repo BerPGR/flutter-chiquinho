@@ -291,7 +291,7 @@ class _MontarChiquinhoWidgetState extends State<MontarChiquinhoWidget> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 20),
+                padding: const EdgeInsets.only(top: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

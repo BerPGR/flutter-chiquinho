@@ -177,7 +177,9 @@ class _CartScreenState extends State<CartScreen> {
                     ),
                   ),
                   onPressed: () {
-                    pedidos.clear();
+                    setState(() {
+                      pedidos.clear();
+                    });
                   },
                   child: Text(
                     'Finalizar pedido',
